@@ -337,16 +337,18 @@ class _BuiltInContainer extends StatelessWidget {
       );
     }
 
-    toast = GestureDetector(
-      onTap: () {
-        // if close on click is enabled dismiss the toast
-        if (closeOnClick) toastification.dismiss(item);
-
-        // call the onTap callback
-        callbacks.onTap?.call(item);
-      },
-      child: toast,
-    );
+    if (closeOnClick) {
+      toast = GestureDetector(
+        onTap: () {
+          // if close on click is enabled dismiss the toast
+          if (closeOnClick) toastification.dismiss(item);
+  
+          // call the onTap callback
+          callbacks.onTap?.call(item);
+        },
+        child: toast,
+      );
+    }
 
     if (dragToClose) {
       toast = _FadeDismissible(
