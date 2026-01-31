@@ -362,7 +362,10 @@ class _BuiltInContainer extends StatelessWidget {
       );
     }
 
-    return toast;
+    return IgnorePointer(
+      ignoring: !closeOnClick,
+      child: toast
+    );
   }
 }
 
