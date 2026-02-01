@@ -254,7 +254,11 @@ class ToastificationManager {
           );
         }
 
-        return overlay;
+        // Wrap overlay in IgnorePointer to allow all gestures to pass through
+        // to underlying widgets, making toasts non-blocking like native Android toasts
+        return IgnorePointer(
+          child: overlay,
+        );
       },
     );
   }

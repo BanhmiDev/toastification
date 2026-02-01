@@ -364,8 +364,9 @@ class _BuiltInContainer extends StatelessWidget {
       );
     }
 
+    // Always ignore pointer events to make toasts pass-through like native Android toasts
     return IgnorePointer(
-      ignoring: !closeOnClick,
+      ignoring: true,
       child: toast
     );
   }
